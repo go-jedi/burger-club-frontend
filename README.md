@@ -1,4 +1,4 @@
-# vue-burger-club
+# burger-club-frontend
 
 ![alt text](./src/assets/readme-md-logo.png)
 
