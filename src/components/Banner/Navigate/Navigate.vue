@@ -1,7 +1,11 @@
 <template>
   <div class="navigate">
     <div v-for="link in links" :key="link.id" class="navigate__content">
-      <RouterLink :to="link.link" class="navigate__link">
+      <RouterLink
+        :style="{ color: route.path === link.link ? '#e79600' : '' }"
+        :to="link.link"
+        class="navigate__link"
+      >
         {{ link.name }}
       </RouterLink>
     </div>
@@ -10,6 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import { useRoute } from "vue-router";
 
 type LinksType = {
   id: number;
@@ -20,6 +25,8 @@ type LinksType = {
 export default defineComponent({
   name: "NavigateComponent",
   setup() {
+    const route = useRoute();
+
     const links = ref<LinksType[]>([
       {
         id: 1,
@@ -38,13 +45,14 @@ export default defineComponent({
       },
       {
         id: 4,
-        name: "Shop",
-        link: "/shop"
+        name: "Basket",
+        link: "/basket"
       }
     ]);
 
     return {
       // ref
+      route,
       links
     };
   }

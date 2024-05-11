@@ -7,7 +7,7 @@
       </div>
       <div class="product__title">{{ product.name }}</div>
     </div>
-    <Adding />
+    <Adding :product="product" />
   </div>
 </template>
 
